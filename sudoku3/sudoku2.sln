@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36804.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sudoku2", "sudoku2\sudoku2.vcxproj", "{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Debug|x64.ActiveCfg = Debug|x64
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Debug|x64.Build.0 = Debug|x64
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Debug|x86.ActiveCfg = Debug|Win32
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Debug|x86.Build.0 = Debug|Win32
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Release|x64.ActiveCfg = Release|x64
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Release|x64.Build.0 = Release|x64
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Release|x86.ActiveCfg = Release|Win32
+		{CFCA081D-4FC1-4602-AB5F-CBFB152B9A08}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40E5E368-59BE-4EFA-96FE-EE2F58FBBED8}
+	EndGlobalSection
+EndGlobal
