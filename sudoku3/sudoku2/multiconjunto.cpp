@@ -56,7 +56,7 @@ bool MultiConjunto::insertar(int v){
 	else {
 		lista[cont].v = v;
 		lista[cont].multiplicidad++;
-		cout << cont << endl;
+		//cout << cont << endl;
 		insertado = true;
 	}
 	return insertado;

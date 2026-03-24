@@ -47,5 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="sudoku_1.txt" />
+    <Text Include="sudoku_2.txt" />
   </ItemGroup>
 </Project>
