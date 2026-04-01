@@ -191,6 +191,7 @@ int main() {
     sudoku.carga_sudoku(archivo);
     int f = 0, c = 0, v = 0;
     int dim = sudoku.dame_dimension();
+    int addit = 0;
         
     visualizar(sudoku);
     opciones();
@@ -274,12 +275,24 @@ int main() {
                 reset(r);
                 cout << "En (" << (f + 1) << ", " << (c + 1) << ") ... Los valores posibles son: ";
 
-                for (int i = 1; i <= sudoku.dame_dimension(); i++) {
-                    if (sudoku.es_valor_posible(f, c, i)) {
-                        cout << i << " ";
+                if (sudoku.dame_celda(f, c).es_vacia() && f < dim && c < dim) {
+                    for (int i = 1; i <= sudoku.dame_dimension(); i++) {
+                        if (sudoku.es_valor_posible(f, c, i)) {
+                            addit += 1;
+                            cout << i << " ";
+                        }
                     }
+                    if (addit == 0) {
+                        cout << RED << " NONE" << RESET << endl;
+                    }
+                    cout << endl;
+
                 }
-                cout << endl;
+                else {
+                    cout << RED << " NONE" << RESET << endl;
+                }
+
+                addit = 0;
 
                 /*opciones();*/
 

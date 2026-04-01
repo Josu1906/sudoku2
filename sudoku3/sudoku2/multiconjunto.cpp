@@ -68,18 +68,22 @@ bool MultiConjunto::eliminar(int v) {
 	int index = 0;
 	bool encontrado = false;
 
+	//cout << "valor: " << v << " nro elmentos (antes): " << dame_num_elems() << endl;
+
+
 	while (index < dim && !encontrado) {
 		if (lista[index].v == v) {
 			encontrado = true;
+			//cout << " multiplicidad: " << lista[index].multiplicidad << endl;
 			lista[index].multiplicidad--;
 			if (lista[index].multiplicidad < 1) {
 				for (int n = index; n < (dim - 1); n++) { // se hace el reordenamiento
-					//this->lista[n].v = this->lista[n + 1].v;
-					//this->lista[n].multiplicidad = this->lista[n + 1].multiplicidad;
-					this->lista[n] = this->lista[n + 1];
+					this->lista[n].v = this->lista[n + 1].v;
+					this->lista[n].multiplicidad = this->lista[n + 1].multiplicidad;
+					//this->lista[n] = this->lista[n + 1];
 				}
-				this->lista[dame_num_elems() - 1].v = 0;
-				this->lista[dame_num_elems() - 1].multiplicidad = 0;
+				this->lista[dim - 1].v = 0;
+				this->lista[dim - 1].multiplicidad = 0;
 			}
 
 
@@ -89,6 +93,8 @@ bool MultiConjunto::eliminar(int v) {
 		}
 
 	}
+
+	//cout << "valor: " << v << " nro elmentos (despues): " << dame_num_elems() << endl;
 
 	return encontrado;
 }
