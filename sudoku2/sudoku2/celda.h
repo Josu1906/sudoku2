@@ -4,7 +4,7 @@
 
 using namespace std;
 
-typedef int tEstado[3];
+typedef enum { ORIGINAL, OCUPADA, VACIA } tEstado;
 
 class tCelda {
 private:

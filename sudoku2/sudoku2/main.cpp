@@ -214,21 +214,22 @@ int main() {
                 cout << "/n Valor: ";
                 cin >> v;
 
-                reset(r);
 
                 if (sudoku.pon_valor(f, c, v)) {
+                    reset(r);
                     cout << endl;
-                    cout << GREEN << "--> THE VALUE: " << RESET << v << GREEN << " WAS ADDED IT CORRECTLY IN " << RESET << "(" << (f + 1) <<", " << (c + 1) <<" )" << GREEN << " <--" << RESET << endl;
+                    cout << GREEN << "--> THE VALUE: " << RESET << v << GREEN << " WAS ADDED IT CORRECTLY IN " << RESET << "(" << (f + 1) <<", " << (c + 1) <<")" << GREEN << " <--" << RESET << endl;
                 }
 
                 else {
+                    reset(r);
                     cout << endl;
-                    cout << DRED << " --> ERROR: WE COULDNT ADD " << RESET << v << " IN" << RESET << "(" << (f + 1) << ", " << (c + 1) << ")" << DRED << ".IT IS NOT POSSIBLE <-- " << RESET << endl;
+                    cout << DRED << " --> ERROR: WE COULDNT ADD " << RESET << v << " IN" << RESET << " (" << (f + 1) << ", " << (c + 1) << ") " << DRED << ".IT IS NOT POSSIBLE <-- " << RESET << endl;
                 }
                 
-                visualizar(sudoku);
+                /*visualizar(sudoku);
                 block(sudoku);
-                opciones();
+                opciones();*/
 
 
                 break;
@@ -238,27 +239,28 @@ int main() {
                 f -= 1;
                 c -= 1;
                 
-                reset(r);
 
                 if (sudoku.quita_valor(f, c)) {
+                    reset(r);
                     cout << endl;
                     cout << GREEN << "--> DELETED IT CORRECTLY <--" << RESET << endl;
                 }
 
                 else {
+                    reset(r);
                     cout << endl;
                     cout << DRED << "--> IT CANNOT BE DELETED <-- " << RESET << endl;
                 }
 
-                visualizar(sudoku);
+                /*visualizar(sudoku);
                 block(sudoku);
-                opciones();
+                opciones();*/
                 break;
             case 3:
                 reset(r);
                 sudoku.reset();
-                visualizar(sudoku);
-                opciones();
+                /*visualizar(sudoku);
+                opciones();*/
                 break;
             case 4:
 
@@ -269,8 +271,8 @@ int main() {
 
                 reset(r);
 
-                visualizar(sudoku);
-                block(sudoku);
+                /*visualizar(sudoku);
+                block(sudoku);*/
                 
                 cout << "En (" << (f + 1) << ", " << (c + 1) << ") ... Los valores posibles son: ";
 
@@ -287,22 +289,26 @@ int main() {
             case 5:
                 sudoku.autocompletar();
                 reset(r);
-                visualizar(sudoku);
+                /*visualizar(sudoku);
                 block(sudoku);
-                opciones();
+                opciones();*/
                 break;
             case 6:
                 salir = true;
                 break;
             default:
                 reset(r);
-                visualizar(sudoku);
+                /*visualizar(sudoku);
                 block(sudoku);
-                opciones();
+                opciones();*/
                 break;
 
 
             }
+
+            visualizar(sudoku);
+            block(sudoku);
+            opciones();
 
 
         }

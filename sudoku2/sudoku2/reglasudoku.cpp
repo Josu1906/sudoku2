@@ -115,7 +115,7 @@ bool ReglasSudoku::es_valor_posible(int f, int c, int v) {
 					//cout << endl;*/
 
 
-					if (v == this->tablero.get_celda(i, j).dame_valor()) {
+					if (v == this->tablero.get_celda(i, j).dame_valor() && (i != f && j != c)) {
 						////cout << "el numero: " << v << " esta repetido" << endl;
 						repetido = true;
 					}
@@ -152,7 +152,7 @@ bool ReglasSudoku::pon_valor(int f, int c, int v) {
 
 	//cout << "THE CELL NOT UNAVAILABLE IN THE POSITION (" << f << ", " << c << ") IS AT: " << this->tablero.get_celda(f, c).es_ocupada() << endl;
 
-	if (!(this->tablero.get_celda(f, c).es_ocupada()) && !(this->tablero.get_celda(f, c).es_original()) && v > 0 && v <= dimension && es_valor_posible(f, c, v)) {
+	if (this->tablero.get_celda(f, c).es_vacia() && v > 0 && f < dimension && c < dimension && v <= dimension && es_valor_posible(f, c, v)) {
 		this->tablero.set_valor(f, c, v, "OCUPADA");
 		this->cont += 1;
 
@@ -169,6 +169,7 @@ bool ReglasSudoku::pon_valor(int f, int c, int v) {
 				int k = 1;
 				bool block = true;
 				bool block_repetido = false;
+				int p = 0;
 
 				// analiza los valores posibles de la fila y la columna alrededor celda que se puso el valor. si no encuentra un valor posible para una celda quiere decir que esta bloqueada
 
@@ -188,7 +189,6 @@ bool ReglasSudoku::pon_valor(int f, int c, int v) {
 					if (block) {
 
 						//cout << "THE BLOCKED CELLS ARE: ... ";
-						int p = 0;
 						while (p < this->pos_bloqueadas.cont && !block_repetido) {
 
 							//cout << "(" << nf << ", " << nc << "): ";
@@ -327,12 +327,13 @@ bool ReglasSudoku::quita_valor(int f, int c) {
 						if (this->pos_bloqueadas.lista_de_bloqueados[k].f == nf && this->pos_bloqueadas.lista_de_bloqueados[k].c == nc) {
 							if (es_valor_posible(nf, nc, v)) {
 
-								this->pos_bloqueadas.cont -= 1;
-
 								for (int n = k; k < (num_celdas_bloqueadas - 1); k++) { // se hace el reordenamiento
 									this->pos_bloqueadas.lista_de_bloqueados[n].f = this->pos_bloqueadas.lista_de_bloqueados[n + 1].f;
 									this->pos_bloqueadas.lista_de_bloqueados[n].c = this->pos_bloqueadas.lista_de_bloqueados[n + 1].c;
 								}
+								this->pos_bloqueadas.lista_de_bloqueados[(num_celdas_bloqueadas - 1)].f = 0;
+								this->pos_bloqueadas.lista_de_bloqueados[(num_celdas_bloqueadas - 1)].c = 0;
+								this->pos_bloqueadas.cont -= 1;
 
 							}
 						}
@@ -375,12 +376,15 @@ bool ReglasSudoku::quita_valor(int f, int c) {
 						if (this->pos_bloqueadas.lista_de_bloqueados[k].f == i && this->pos_bloqueadas.lista_de_bloqueados[k].c == j) {
 							if (es_valor_posible(i, j, v)) {
 
-								this->pos_bloqueadas.cont -= 1;
 
 								for (int n = k; k < (num_celdas_bloqueadas - 1); k++) { // se hace el reordenamiento
 									this->pos_bloqueadas.lista_de_bloqueados[n].f = this->pos_bloqueadas.lista_de_bloqueados[n + 1].f;
 									this->pos_bloqueadas.lista_de_bloqueados[n].c = this->pos_bloqueadas.lista_de_bloqueados[n + 1].c;
 								}
+								this->pos_bloqueadas.lista_de_bloqueados[(num_celdas_bloqueadas - 1)].f = 0;
+								this->pos_bloqueadas.lista_de_bloqueados[(num_celdas_bloqueadas - 1)].c = 0;
+								this->pos_bloqueadas.cont -= 1;
+								this->pos_bloqueadas.cont -= 1;
 
 							}
 						}

@@ -1,5 +1,3 @@
-﻿  reglasudoku.cpp
-C:\Users\Josué Gonzalez\Downloads\sudoku2\sudoku2\reglasudoku.cpp(100,22): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Josué Gonzalez\Downloads\sudoku2\sudoku2\reglasudoku.cpp(220,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Josué Gonzalez\Downloads\sudoku2\sudoku2\reglasudoku.cpp(352,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+﻿  main.cpp
+C:\Users\Josué Gonzalez\Downloads\sudoku2\sudoku2\main.cpp(40,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
   sudoku2.vcxproj -> C:\Users\Josué Gonzalez\Downloads\sudoku2\x64\Debug\sudoku2.exe
